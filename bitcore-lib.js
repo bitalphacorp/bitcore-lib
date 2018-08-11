@@ -8496,7 +8496,7 @@ function MultiSigInput(input, pubkeys, threshold, signatures) {
   });
   this.threshold = threshold;
   // Empty array of signatures
-  this.signatures = signatures ? this._deserializeSignatures(signatures) : new Array(this.publicKeys.length);
+  this.signatures = signatures ? this._deserializeSignatures(signatures) : new Array(this.publicKeys.length).fill(null);
 }
 inherits(MultiSigInput, Input);
 
@@ -8580,7 +8580,7 @@ MultiSigInput.prototype._createSignatures = function() {
 };
 
 MultiSigInput.prototype.clearSignatures = function() {
-  this.signatures = new Array(this.publicKeys.length);
+  this.signatures = new Array(this.publicKeys.length).fill(null);
   this._updateScript();
 };
 
@@ -8709,7 +8709,7 @@ function MultiSigScriptHashInput(input, pubkeys, threshold, signatures) {
   });
   this.threshold = threshold;
   // Empty array of signatures
-  this.signatures = signatures ? this._deserializeSignatures(signatures) : new Array(this.publicKeys.length);
+  this.signatures = signatures ? this._deserializeSignatures(signatures) : new Array(this.publicKeys.length).fill(null);
 }
 inherits(MultiSigScriptHashInput, Input);
 
@@ -8793,7 +8793,7 @@ MultiSigScriptHashInput.prototype._createSignatures = function() {
 };
 
 MultiSigScriptHashInput.prototype.clearSignatures = function() {
-  this.signatures = new Array(this.publicKeys.length);
+  this.signatures = new Array(this.publicKeys.length).fill(null);
   this._updateScript();
 };
 
